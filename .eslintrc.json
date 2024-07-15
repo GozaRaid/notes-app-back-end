@@ -12,6 +12,7 @@
     "rules": {
         "no-console": "off",
         "no-underscore-dangle": "off",
-        "eslint-plugin-import/no-extraneous-dependencies": "off"
+        "eslint-plugin-import/no-extraneous-dependencies": "off",
+        "camelcase" :"off"
     }
 }
