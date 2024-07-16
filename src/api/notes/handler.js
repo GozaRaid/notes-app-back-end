@@ -40,12 +40,15 @@ class NotesHandler {
   async getNoteByIdHandler(request, h) {
     const { id } = request.params;
     const note = await this._service.getNoteById(id);
-    return {
+    const response = h.response({
       status: 'success',
+      message: 'Catatan berhasil ditemukan',
       data: {
         note,
       },
-    };
+    });
+    response.code(200);
+    return response;
   }
 
   async putNoteByIdHandler(request, h) {
@@ -54,20 +57,24 @@ class NotesHandler {
 
     await this._service.editNoteById(id, request.payload);
 
-    return {
+    const response = h.response({
       status: 'success',
       message: 'Catatan berhasil diperbarui',
-    };
+    });
+    response.code(200);
+    return response;
   }
 
   async deleteNoteByIdHandler(request, h) {
     const { id } = request.params;
     await this._service.deleteNoteById(id);
 
-    return {
+    const response = h.response({
       status: 'success',
-      message: 'Catatan berhasil dihapus',
-    };
+      message: 'Catatan berhasil diperbarui',
+    });
+    response.code(200);
+    return response;
   }
 }
 
